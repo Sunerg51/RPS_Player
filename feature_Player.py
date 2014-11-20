@@ -15,11 +15,11 @@
 		for index, move in enumerate(pastmoves):
 			if index % 2 == 1:
 				if move == 0:
-					rock += 1:
+					rock += 1
 				elif move == 1:
-					paper += 1:
+					paper += 1
 				else
-					scissors += 1:
+					scissors += 1
 		else
 			#Not sure how to output a move but for now the first move is just rock since the list is empty
 			#Throw rock
@@ -31,6 +31,6 @@
 			#Throw scissors
 		elif scissors > rock && scissors > paper:
 			#Throw paper
-		else
-			#Throw scissors
+		else #Arbitrary throw if 2 or 3 are thrown evenly
+			#Throw rock
 		
