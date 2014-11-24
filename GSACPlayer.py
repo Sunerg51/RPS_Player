@@ -11,20 +11,19 @@
         Player.Player.__init__(self)
         self.reset()
 	
-	
 	def play(self):
 		 return RpsPlayingStrategy.play(self.opponents_moves)
 			
 	def reset(self):
         self.opponents_moves = []
 		
-	def get_name(self)
+	def get_name(self):
 		return self.name
 		
 	def set_name (self, playername):
 		self.name = playername
 	
-  def notify(self, msg):
+	def notify(self, msg):
 
         # We use notifications to store opponent's moves in past rounds
         # Process match-start and round-end messages
@@ -83,3 +82,22 @@ class RpsPlayingStrategy(object):
 				return 1
 			else #Arbitrary throw if 2 or 3 are thrown evenly
 				return 0
+				
+
+
+# Test driver
+# Run by typing "python3 RpsPlayerExample.py"
+
+if __name__ == "__main__":
+    player = RPSPlayerExample()
+    opponent = RPSPlayerExample()
+    players = [opponent,player]
+    fakeinfo = ((0,1),1)
+    fakeresult = 1
+    fakemoves = (1,2)
+
+    player.notify(Message.Message.get_match_start_message(players))
+    player.notify(Message.Message.get_round_start_message(players))
+    move = player.play()
+    print ("Move played: ", move)
+    player.notify(Message.Message.get_round_end_message(players,fakemoves,fakeresult))
